@@ -24,4 +24,7 @@ public:
     void PrtLst() const;
     bool isEmpty() const;
     void insertAt(const int& ind, const T& val);
+    T retriveAt(const int& ind) const;
+    int Size() const;
+    void popAt(const int& ind);
 };

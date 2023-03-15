@@ -121,3 +121,42 @@ void LinkedList<T>::insertAt(const int& ind, const T& val){
     curr->prev = temp;
     size++;
 }
+
+template<typename T>
+T LinkedList<T>::retriveAt(const int& ind) const{
+    if(ind >= size || ind < 0)
+        return T();
+    Node<T>* curr = head;
+    for(int i = 0; i < ind; i++)
+        curr = curr -> next;
+    return curr -> value;
+}
+
+template<typename T>
+int LinkedList<T>::Size() const{
+    return size;
+}
+
+template<typename T>
+void LinkedList<T>::popAt(const int& ind){
+    if(ind >= size || ind < 0)
+        return;
+    
+    if(ind == 0){
+        pop_front();
+        return;
+    }
+
+    if(ind == size - 1){
+        pop_back();
+        return;
+    }
+
+    Node<T>* curr = head;
+    for(int i = 0; i < ind; i++)
+        curr = curr->next;
+    curr->prev->next = curr->next;
+    curr->next->prev = curr->prev;
+    delete curr;
+    size--;
+}

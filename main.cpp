@@ -40,5 +40,13 @@ int main(){
     cout << "after pop front: ";
     test.PrtLst();     cout << '\n';
 
-    cout << "is the list empty?: " << test.isEmpty();
+    cout << "is the list empty?: " << test.isEmpty() << '\n';
+
+    cout << "second element = " << test.retriveAt(1) << '\n';
+
+    cout << "list size = " << test.Size() << '\n';
+
+    test.popAt(1);
+    cout << "after remove the second element : ";
+    test.PrtLst();
 }
